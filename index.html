@@ -3,106 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para você 💛</title>
+<title>Para Você 💛</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #FFD54F, #FFE082, #FFF8E1);
-    overflow: hidden;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 20px;
     text-align: center;
+    overflow-x: hidden;
+    position: relative;
     color: #333;
 }
 
-/* Partículas */
+.container {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 30px 25px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.photo-container {
+    margin: 20px 0;
+}
+
+.photo-container img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease;
+}
+
+.photo-container img:hover {
+    transform: scale(1.05);
+}
+
+.quote {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Partículas douradas */
+
 .particle {
-    position: absolute;
+    position: fixed;
+    width: 6px;
+    height: 6px;
     background: gold;
     border-radius: 50%;
-    opacity: 0.7;
+    opacity: 0.6;
     animation: float linear infinite;
+    z-index: 1;
 }
 
 @keyframes float {
     from {
-        transform: translateY(100vh) scale(0.5);
+        transform: translateY(100vh);
         opacity: 0;
     }
     20% {
         opacity: 0.8;
     }
     to {
-        transform: translateY(-10vh) scale(1);
+        transform: translateY(-10vh);
         opacity: 0;
     }
 }
 
-.container {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 45px;
-    border-radius: 25px;
-    width: 90%;
-    max-width: 650px;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-    position: relative;
-    z-index: 2;
+/* Animação suave de entrada */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-h1 {
-    font-weight: 600;
-    font-size: 30px;
-    margin-bottom: 20px;
-}
+/* Botão música (caso autoplay bloqueie) */
 
-p {
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-.photo-container {
-    margin: 30px 0;
-}
-
-.photo-container img {
-    width: 240px;
-    height: 240px;
-    object-fit: cover;
+.music-btn {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    transition: transform 0.5s ease;
-}
-
-.photo-container img:hover {
-    transform: scale(1.06);
-}
-
-.quote {
-    margin-top: 25px;
-    font-style: italic;
-    font-size: 15px;
-    opacity: 0.85;
-}
-
-.footer {
-    margin-top: 30px;
-    font-weight: 500;
+    background-color: #FFD54F;
+    cursor: pointer;
+    font-size: 13px;
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- Música -->
-<audio autoplay loop>
+<audio id="bgMusic" loop>
     <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
@@ -110,7 +139,7 @@ p {
     <h1>Oi… você 💛</h1>
 
     <p>
-        Eu queria começar de um jeito simples… um olá leve, daqueles que vêm acompanhado de um sorriso meio bobo.
+        Eu queria começar com um olá leve… daqueles que vêm acompanhado de um sorriso sincero.
     </p>
 
     <div class="photo-container">
@@ -120,19 +149,18 @@ p {
     <p>
         Eu precisava te dizer algo que talvez você não perceba…  
         Seus olhos são uma das coisas mais lindas que eu já vi.  
-        Eles têm uma luz diferente. Uma profundidade que prende, que acalma e, ao mesmo tempo, acelera o coração.
+        Existe uma luz neles que é difícil explicar, mas impossível não notar.
     </p>
 
     <p>
         Espero que você fique bem logo.  
-        Que os dias fiquem mais leves.  
-        Que você se sinta cuidada, abraçada e tranquila.  
-        Porque você merece.
+        Que seus dias sejam mais leves.  
+        Que você se sinta abraçada mesmo quando eu não estiver por perto.
     </p>
 
     <p>
-        E nunca esquece disso: você é linda.  
-        Linda por fora… e ainda mais por dentro.
+        E nunca esquece disso:  
+        você é linda. De verdade.
     </p>
 
     <div class="quote">
@@ -140,22 +168,23 @@ p {
     </div>
 
     <div class="footer">
-        Com carinho, alguém que te admira 💛
+        Com carinho 💛
     </div>
+
+    <button class="music-btn" onclick="document.getElementById('bgMusic').play()">
+        💛 Tocar música
+    </button>
 </div>
 
 <script>
-// Criar partículas douradas
-for (let i = 0; i < 40; i++) {
+/* Partículas */
+for (let i = 0; i < 30; i++) {
     let particle = document.createElement("div");
-    particle.classList.add("particle");
+    particle.className = "particle";
     document.body.appendChild(particle);
 
-    let size = Math.random() * 6 + 4;
-    particle.style.width = size + "px";
-    particle.style.height = size + "px";
     particle.style.left = Math.random() * 100 + "vw";
-    particle.style.animationDuration = (Math.random() * 8 + 5) + "s";
+    particle.style.animationDuration = (Math.random() * 6 + 6) + "s";
     particle.style.animationDelay = Math.random() * 5 + "s";
 }
 </script>
